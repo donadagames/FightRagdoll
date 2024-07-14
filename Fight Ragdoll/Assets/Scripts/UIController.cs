@@ -41,7 +41,6 @@ public class UIController : MonoBehaviour
 
         fadeCanvasGroup.DOFade(1, 2).OnComplete(() =>
         {
-            fadeCanvasGroup.gameObject.SetActive(false);
             Application.Quit();
         });
     }
@@ -54,7 +53,6 @@ public class UIController : MonoBehaviour
 
         fadeCanvasGroup.DOFade(1, 2).OnComplete(() =>
         {
-            fadeCanvasGroup.gameObject.SetActive(false);
             SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
         });
     }

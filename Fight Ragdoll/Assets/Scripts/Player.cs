@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float attackAnimationDuration;
 
-    [SerializeField] Material powerUpMaterial;
+    [SerializeField] Material[] powerUpMaterials;
     [SerializeField] SkinnedMeshRenderer playerMesh;
 
     private float inputMagnitude;
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
             pileController.maxNumberOfSlots += 5;
             uiController.UpdateMaxCollectable();
             PowerUpSound();
-            playerMesh.material = powerUpMaterial;
+            playerMesh.material = powerUpMaterials[Random.Range(0, powerUpMaterials.Length)];
         }
 
         else
@@ -197,7 +197,7 @@ public class Player : MonoBehaviour
 
     public void DepositSound()
     {
-        audioSource.PlayOneShot(depositSound);
+        audioSource.PlayOneShot(depositSound, .5f);
     }
 
     public void PowerUpSound()
